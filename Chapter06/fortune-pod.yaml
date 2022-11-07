@@ -22,4 +22,3 @@ spec:
   - name: html
     emptyDir: #{}
       medium: Memory ## Create volume in tmpfs
-
