@@ -13,5 +13,8 @@ spec:
       containers:
       - name: main
         image: luksa/batch-job
-
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
 

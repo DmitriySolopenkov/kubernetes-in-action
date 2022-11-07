@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: batch-job-every-fifteen-minutes
@@ -15,3 +15,8 @@ spec:
           containers:
           - name: main
             image: luksa/batch-job
+            resources:
+              limits:
+                memory: "64Mi"
+                cpu: "100m"
+

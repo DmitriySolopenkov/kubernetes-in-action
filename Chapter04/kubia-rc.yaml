@@ -3,16 +3,23 @@ kind: ReplicationController
 metadata:
   name: kubia
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     app: kubia
+    # type: special
   template:
     metadata:
       labels:
         app: kubia
+        type: special
     spec:
       containers:
       - name: kubia
-        image: luksa/kubia
+        image: dsolopenkov/kubia:latest
         ports:
         - containerPort: 8080
+          protocol: TCP
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "100m"

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: fortune
+  name: fortune-tmpfs
 spec:
   containers:
-  - image: luksa/fortune
+  - image: dsolopenkov/fortune:latest
     name: html-generator
     volumeMounts:
     - name: html
@@ -20,5 +20,6 @@ spec:
       protocol: TCP
   volumes:
   - name: html
-    emptyDir: {}
+    emptyDir: #{}
+      medium: Memory ## Create volume in tmpfs
 

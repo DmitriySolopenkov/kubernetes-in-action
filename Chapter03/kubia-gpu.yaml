@@ -1,3 +1,4 @@
+# kubectl label node <node-name> gpu=true
 apiVersion: v1
 kind: Pod
 metadata:
@@ -6,5 +7,12 @@ spec:
   nodeSelector:
     gpu: "true"
   containers:
-  - image: luksa/kubia
-    name: kubia
+  - name: kubia
+    image: dsolopenkov/kubia:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+    - containerPort: 8080
+      protocol: TCP
